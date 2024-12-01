@@ -11,6 +11,7 @@ app.include_router(route_todo.router)
 app.include_router(route_auth.router)
 origins = [
     "http://localhost:3000",
+    "https://fast-api-hrux.onrender.com"
 ]
 app.add_middleware(
     CORSMiddleware,
