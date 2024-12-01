@@ -4,7 +4,7 @@ from fastapi.encoders import jsonable_encoder
 from schemas import Todo, TodoBody, SuccessMsg
 from database import db_create_todo, db_get_todos, db_get_single_todo, db_update_todo, db_delete_todo
 from starlette.status import HTTP_201_CREATED
-from fastapi_csrf_protect import CsrfProtect, CsrfProtectRequest
+from fastapi_csrf_protect import CsrfProtect
 from auth_utils import AuthJwtCsrf
 
 router = APIRouter()
