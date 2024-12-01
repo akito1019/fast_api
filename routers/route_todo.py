@@ -12,7 +12,7 @@ auth = AuthJwtCsrf()
 
 @router.post("/api/todo", response_model=Todo)
 async def create_todo(request: Request, response: Response, data: TodoBody, csrf_protect: CsrfProtect = Depends()):
-    new_token, subject = auth.verify_csrf_update_jwt(request, csrf_protect, request.headers)
+    new_token = auth.verify_csrf_update_jwt(request, csrf_protect, request.headers)
     todo = jsonable_encoder(data)
     res = await db_create_todo(todo)
     response.status_code = HTTP_201_CREATED
